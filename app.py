@@ -34,35 +34,34 @@ st.markdown("""
         --pale-blue: #a9d6e5;      /* Pale blue */
     }
     
-    /* Main background */
+    /* Main background - Light blue gradient */
     .stApp {
-        background: linear-gradient(135deg, var(--dark-blue) 0%, var(--navy-blue) 50%, var(--medium-blue) 100%);
+        background: linear-gradient(135deg, var(--pale-blue) 0%, rgba(255,255,255,0.9) 50%, var(--powder-blue) 100%);
         min-height: 100vh;
     }
     
-    /* Sidebar styling */
+    /* Sidebar styling - Keep dark but readable */
     .css-1d391kg {
-        background: linear-gradient(180deg, var(--dark-blue) 0%, var(--navy-blue) 100%);
-        border-right: 2px solid var(--ocean-blue);
+        background: linear-gradient(180deg, var(--steel-blue) 0%, var(--ocean-blue) 100%);
+        border-right: 2px solid var(--light-blue);
     }
     
-    /* Main container */
+    /* Main container - Pure white background */
     .main .block-container {
-        background: rgba(255, 255, 255, 0.98);
+        background: rgba(255, 255, 255, 1.0);
         padding: 2rem;
         border-radius: 20px;
-        box-shadow: 0 20px 40px rgba(1, 42, 74, 0.2);
+        box-shadow: 0 20px 40px rgba(1, 42, 74, 0.15);
         backdrop-filter: blur(10px);
         margin-top: 2rem;
-        border: 1px solid var(--pale-blue);
+        border: 2px solid var(--light-blue);
     }
     
-    /* Headers styling */
+    /* Headers styling - Dark blue on white background */
     h1 {
-        background: linear-gradient(45deg, var(--ocean-blue), var(--teal-blue));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: var(--steel-blue) !important;
+        background: none !important;
+        -webkit-text-fill-color: var(--steel-blue) !important;
         text-align: center;
         font-size: 3rem !important;
         font-weight: 700 !important;
@@ -70,7 +69,7 @@ st.markdown("""
     }
     
     h2 {
-        color: var(--steel-blue);
+        color: var(--dark-blue) !important;
         font-weight: 600;
         border-bottom: 3px solid var(--ocean-blue);
         padding-bottom: 0.5rem;
@@ -78,25 +77,45 @@ st.markdown("""
     }
     
     h3 {
-        color: var(--medium-blue);
+        color: var(--medium-blue) !important;
         font-weight: 500;
     }
     
-    /* Regular text styling */
+    /* All text in main area - Dark for readability */
+    .main .block-container {
+        color: #1a1a1a !important;
+    }
+    
     .main .block-container p {
-        color: #2c3e50;
+        color: #1a1a1a !important;
         line-height: 1.6;
     }
     
-    /* Sidebar headers and text */
+    .main .block-container .stMarkdown {
+        color: #1a1a1a !important;
+    }
+    
+    .main .block-container div {
+        color: #1a1a1a !important;
+    }
+    
+    /* Sidebar headers and text - Light colors on dark background */
     .css-1d391kg h1, .css-1d391kg h2, .css-1d391kg h3 {
-        color: var(--pale-blue) !important;
+        color: white !important;
         background: none !important;
-        -webkit-text-fill-color: var(--pale-blue) !important;
+        -webkit-text-fill-color: white !important;
     }
     
     .css-1d391kg .stMarkdown {
-        color: var(--powder-blue) !important;
+        color: var(--pale-blue) !important;
+    }
+    
+    .css-1d391kg .stMarkdown p {
+        color: var(--pale-blue) !important;
+    }
+    
+    .css-1d391kg .stMarkdown div {
+        color: var(--pale-blue) !important;
     }
     
     /* Button styling */
@@ -220,22 +239,22 @@ st.markdown("""
         background: linear-gradient(45deg, var(--ocean-blue), var(--teal-blue)) !important;
     }
     
-    /* Custom title styling */
+    /* Custom title styling - Blue but readable */
     .main-title {
-        background: linear-gradient(45deg, var(--ocean-blue), var(--sky-blue));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: var(--steel-blue) !important;
+        background: none !important;
+        -webkit-background-clip: none !important;
+        -webkit-text-fill-color: var(--steel-blue) !important;
         text-align: center;
         font-size: 3.5rem;
         font-weight: 800;
         margin-bottom: 0.5rem;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        text-shadow: none;
     }
     
     .subtitle {
         text-align: center;
-        color: var(--steel-blue);
+        color: var(--medium-blue) !important;
         font-size: 1.2rem;
         font-weight: 400;
         margin-bottom: 2rem;
