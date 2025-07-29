@@ -17,32 +17,49 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for beautiful styling
+# Custom CSS with harmonious blue palette
 st.markdown("""
 <style>
+    /* Color Palette Variables */
+    :root {
+        --dark-blue: #012a4a;      /* Darkest blue */
+        --navy-blue: #013a63;      /* Deep navy */
+        --medium-blue: #01497c;    /* Medium dark blue */
+        --steel-blue: #014f86;     /* Steel blue */
+        --ocean-blue: #2a6f97;     /* Ocean blue */
+        --teal-blue: #2c7da0;      /* Teal blue */
+        --sky-blue: #468faf;       /* Sky blue */
+        --light-blue: #61a5c2;     /* Light blue */
+        --powder-blue: #89c2d9;    /* Powder blue */
+        --pale-blue: #a9d6e5;      /* Pale blue */
+    }
+    
     /* Main background */
     .stApp {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, var(--dark-blue) 0%, var(--navy-blue) 50%, var(--medium-blue) 100%);
+        min-height: 100vh;
     }
     
     /* Sidebar styling */
     .css-1d391kg {
-        background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+        background: linear-gradient(180deg, var(--dark-blue) 0%, var(--navy-blue) 100%);
+        border-right: 2px solid var(--ocean-blue);
     }
     
     /* Main container */
     .main .block-container {
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 0.98);
         padding: 2rem;
         border-radius: 20px;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        box-shadow: 0 20px 40px rgba(1, 42, 74, 0.2);
         backdrop-filter: blur(10px);
         margin-top: 2rem;
+        border: 1px solid var(--pale-blue);
     }
     
     /* Headers styling */
     h1 {
-        background: linear-gradient(45deg, #667eea, #764ba2);
+        background: linear-gradient(45deg, var(--ocean-blue), var(--teal-blue));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -53,125 +70,159 @@ st.markdown("""
     }
     
     h2 {
-        color: #2c3e50;
+        color: var(--steel-blue);
         font-weight: 600;
-        border-bottom: 3px solid #667eea;
+        border-bottom: 3px solid var(--ocean-blue);
         padding-bottom: 0.5rem;
         margin-bottom: 1.5rem;
     }
     
     h3 {
-        color: #34495e;
+        color: var(--medium-blue);
         font-weight: 500;
     }
     
-    /* Sidebar headers */
+    /* Regular text styling */
+    .main .block-container p {
+        color: #2c3e50;
+        line-height: 1.6;
+    }
+    
+    /* Sidebar headers and text */
     .css-1d391kg h1, .css-1d391kg h2, .css-1d391kg h3 {
-        color: #ecf0f1 !important;
+        color: var(--pale-blue) !important;
         background: none !important;
-        -webkit-text-fill-color: #ecf0f1 !important;
+        -webkit-text-fill-color: var(--pale-blue) !important;
+    }
+    
+    .css-1d391kg .stMarkdown {
+        color: var(--powder-blue) !important;
     }
     
     /* Button styling */
     .stButton > button {
-        background: linear-gradient(45deg, #667eea, #764ba2);
+        background: linear-gradient(45deg, var(--ocean-blue), var(--teal-blue));
         color: white;
         border: none;
         border-radius: 25px;
         padding: 0.5rem 2rem;
         font-weight: 600;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        box-shadow: 0 4px 15px rgba(42, 111, 151, 0.3);
     }
     
     .stButton > button:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-        background: linear-gradient(45deg, #764ba2, #667eea);
+        box-shadow: 0 8px 25px rgba(42, 111, 151, 0.4);
+        background: linear-gradient(45deg, var(--teal-blue), var(--sky-blue));
     }
     
     /* File uploader styling */
     .stFileUploader {
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        background: linear-gradient(135deg, var(--pale-blue) 0%, rgba(255,255,255,0.8) 100%);
         padding: 1.5rem;
         border-radius: 15px;
-        border: 2px dashed #667eea;
+        border: 2px dashed var(--ocean-blue);
         margin: 1rem 0;
+    }
+    
+    .stFileUploader label {
+        color: var(--steel-blue) !important;
+        font-weight: 600;
     }
     
     /* Chat messages */
     .stChatMessage {
-        background: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.95);
         border-radius: 15px;
         padding: 1rem;
         margin: 0.5rem 0;
         backdrop-filter: blur(5px);
-        border-left: 4px solid #667eea;
+        border-left: 4px solid var(--ocean-blue);
+        color: #2c3e50 !important;
+    }
+    
+    .stChatMessage [data-testid="chatAvatarIcon-user"] {
+        background: var(--ocean-blue);
+    }
+    
+    .stChatMessage [data-testid="chatAvatarIcon-assistant"] {
+        background: var(--teal-blue);
     }
     
     /* Success/Info messages */
     .stSuccess {
-        background: linear-gradient(45deg, #00b894, #00cec9);
-        color: white;
-        border-radius: 10px;
-        border: none;
+        background: linear-gradient(45deg, var(--teal-blue), var(--sky-blue)) !important;
+        color: white !important;
+        border-radius: 10px !important;
+        border: none !important;
     }
     
     .stInfo {
-        background: linear-gradient(45deg, #667eea, #764ba2);
-        color: white;
-        border-radius: 10px;
-        border: none;
+        background: linear-gradient(45deg, var(--ocean-blue), var(--light-blue)) !important;
+        color: white !important;
+        border-radius: 10px !important;
+        border: none !important;
     }
     
     .stError {
-        background: linear-gradient(45deg, #d63031, #e17055);
-        color: white;
-        border-radius: 10px;
-        border: none;
+        background: linear-gradient(45deg, #d63031, #e17055) !important;
+        color: white !important;
+        border-radius: 10px !important;
+        border: none !important;
     }
     
     .stWarning {
-        background: linear-gradient(45deg, #fdcb6e, #e17055);
-        color: white;
-        border-radius: 10px;
-        border: none;
+        background: linear-gradient(45deg, #fdcb6e, #e17055) !important;
+        color: white !important;
+        border-radius: 10px !important;
+        border: none !important;
     }
     
     /* Input field styling */
     .stTextInput > div > div > input {
         border-radius: 25px;
-        border: 2px solid #667eea;
+        border: 2px solid var(--light-blue);
         padding: 0.5rem 1rem;
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.95);
+        color: var(--dark-blue);
+    }
+    
+    .stTextInput > div > div > input:focus {
+        border-color: var(--ocean-blue);
+        box-shadow: 0 0 10px rgba(42, 111, 151, 0.3);
+    }
+    
+    /* Chat input */
+    .stChatInput > div > div > div > div > input {
+        background: rgba(255, 255, 255, 0.95);
+        border: 2px solid var(--powder-blue);
+        border-radius: 25px;
+        color: var(--dark-blue);
     }
     
     /* Expander styling */
     .streamlit-expanderHeader {
-        background: linear-gradient(45deg, #667eea, #764ba2);
-        color: white;
-        border-radius: 10px;
+        background: linear-gradient(45deg, var(--ocean-blue), var(--teal-blue)) !important;
+        color: white !important;
+        border-radius: 10px !important;
         font-weight: 600;
     }
     
     .streamlit-expanderContent {
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 0.98) !important;
         border-radius: 0 0 10px 10px;
-    }
-    
-    /* Sidebar text color */
-    .css-1d391kg .stMarkdown {
-        color: #ecf0f1;
+        color: #2c3e50 !important;
     }
     
     /* Progress bar */
     .stProgress .st-bo {
-        background: linear-gradient(45deg, #667eea, #764ba2);
+        background: linear-gradient(45deg, var(--ocean-blue), var(--teal-blue)) !important;
     }
     
     /* Custom title styling */
     .main-title {
-        background: linear-gradient(45deg, #667eea, #764ba2);
+        background: linear-gradient(45deg, var(--ocean-blue), var(--sky-blue));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -184,16 +235,45 @@ st.markdown("""
     
     .subtitle {
         text-align: center;
-        color: #34495e;
+        color: var(--steel-blue);
         font-size: 1.2rem;
-        font-weight: 300;
+        font-weight: 400;
         margin-bottom: 2rem;
         font-style: italic;
     }
     
     /* Spinner styling */
     .stSpinner {
-        color: #667eea !important;
+        color: var(--ocean-blue) !important;
+    }
+    
+    /* Markdown text in main area */
+    .main .block-container .stMarkdown {
+        color: #2c3e50;
+    }
+    
+    /* Ensure all text in main area is readable */
+    .main .block-container * {
+        color: #2c3e50;
+    }
+    
+    /* Override for headers to keep gradient */
+    .main .block-container h1, 
+    .main .block-container h2, 
+    .main .block-container h3 {
+        color: var(--steel-blue) !important;
+    }
+    
+    /* Special styling for the main title */
+    .main-title {
+        background: linear-gradient(45deg, var(--ocean-blue), var(--sky-blue)) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+    }
+    
+    /* Footer styling */
+    .main .block-container hr + div {
+        color: var(--medium-blue) !important;
     }
 </style>
 """, unsafe_allow_html=True)
