@@ -12,6 +12,7 @@ google-generativeai>=0.3.0
 
 # LangChain Components
 langchain>=0.0.350
+langchain-community>=0.0.350
 langchain-google-genai>=0.0.6
 
 # Vector Database
