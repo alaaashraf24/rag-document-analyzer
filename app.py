@@ -260,14 +260,14 @@ st.markdown("""
         background: var(--navy-blue) !important;
         border: 2px solid var(--ocean-blue) !important;
         border-radius: 25px !important;
-        color: var(--pale-blue) !important;
+        color: #f8f9fa !important;
         padding: 0.75rem 1.5rem !important;
         font-size: 1rem !important;
     }
     
     .stChatInput > div > div > div > div > input::placeholder {
-        color: var(--powder-blue) !important;
-        opacity: 0.8 !important;
+        color: #e9ecef !important;
+        opacity: 0.7 !important;
     }
     
     .stChatInput > div > div > div > div > input:focus {
