@@ -118,7 +118,7 @@ st.markdown("""
         color: var(--pale-blue) !important;
     }
     
-    /* Button styling */
+    /* Button styling - Updated to make all buttons consistent */
     .stButton > button {
         background: linear-gradient(45deg, var(--ocean-blue), var(--teal-blue));
         color: white;
@@ -131,6 +131,25 @@ st.markdown("""
     }
     
     .stButton > button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(42, 111, 151, 0.4);
+        background: linear-gradient(45deg, var(--teal-blue), var(--sky-blue));
+    }
+    
+    /* Specific styling for Process Documents button in sidebar */
+    .css-1d391kg .stButton > button {
+        background: linear-gradient(45deg, var(--ocean-blue), var(--teal-blue));
+        color: white;
+        border: none;
+        border-radius: 25px;
+        padding: 0.5rem 2rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(42, 111, 151, 0.3);
+        width: 100%;
+    }
+    
+    .css-1d391kg .stButton > button:hover {
         transform: translateY(-2px);
         box-shadow: 0 8px 25px rgba(42, 111, 151, 0.4);
         background: linear-gradient(45deg, var(--teal-blue), var(--sky-blue));
@@ -212,12 +231,64 @@ st.markdown("""
         box-shadow: 0 0 10px rgba(42, 111, 151, 0.3);
     }
     
-    /* Chat input */
+    /* Chat input dark theme styling */
+    .stChatInput {
+        background: var(--dark-blue) !important;
+        border-radius: 15px !important;
+        padding: 1rem !important;
+        margin: 1rem 0 !important;
+        border: 2px solid var(--ocean-blue) !important;
+    }
+    
+    .stChatInput > div {
+        background: var(--dark-blue) !important;
+    }
+    
+    .stChatInput > div > div {
+        background: var(--dark-blue) !important;
+    }
+    
+    .stChatInput > div > div > div {
+        background: var(--dark-blue) !important;
+    }
+    
+    .stChatInput > div > div > div > div {
+        background: var(--dark-blue) !important;
+    }
+    
     .stChatInput > div > div > div > div > input {
-        background: rgba(255, 255, 255, 0.95);
-        border: 2px solid var(--powder-blue);
-        border-radius: 25px;
-        color: var(--dark-blue);
+        background: var(--navy-blue) !important;
+        border: 2px solid var(--ocean-blue) !important;
+        border-radius: 25px !important;
+        color: var(--pale-blue) !important;
+        padding: 0.75rem 1.5rem !important;
+        font-size: 1rem !important;
+    }
+    
+    .stChatInput > div > div > div > div > input::placeholder {
+        color: var(--powder-blue) !important;
+        opacity: 0.8 !important;
+    }
+    
+    .stChatInput > div > div > div > div > input:focus {
+        border-color: var(--teal-blue) !important;
+        box-shadow: 0 0 15px rgba(42, 111, 151, 0.4) !important;
+        color: white !important;
+    }
+    
+    /* Chat input button styling */
+    .stChatInput button {
+        background: linear-gradient(45deg, var(--ocean-blue), var(--teal-blue)) !important;
+        border: none !important;
+        border-radius: 50% !important;
+        color: white !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .stChatInput button:hover {
+        background: linear-gradient(45deg, var(--teal-blue), var(--sky-blue)) !important;
+        transform: scale(1.1) !important;
+        box-shadow: 0 4px 15px rgba(42, 111, 151, 0.4) !important;
     }
     
     /* Expander styling */
