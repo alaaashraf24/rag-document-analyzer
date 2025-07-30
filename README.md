@@ -31,7 +31,7 @@ A powerful **Retrieval-Augmented Generation (RAG)** application that transforms 
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/alaaashraf24/rag-document-analyzer.git  
+   git clone https://github.com/alaaashraf24/rag-document-analyzer.git
    cd rag-document-analyzer
    ```
 
@@ -126,7 +126,9 @@ rag-document-analyzer/
 ├── app.py                 # Main Streamlit application
 ├── requirements.txt       # Python dependencies
 ├── README.md             # Project documentation
-
+├── .streamlit/
+│   └── secrets.toml      # Streamlit secrets (create this)
+└── .env                  # Environment variables (optional)
 ```
 
 ## 🔒 Security & Privacy
@@ -144,6 +146,23 @@ rag-document-analyzer/
 2. Connect your GitHub repo to [Streamlit Cloud](https://streamlit.io/cloud)
 3. Add your `GOOGLE_API_KEY` in the Streamlit Cloud secrets
 4. Deploy with one click!
+
+### Local Development
+
+```bash
+# Install in development mode
+pip install -e .
+
+# Run with debug mode
+streamlit run app.py --logger.level=debug
+```
+
+## 📊 System Requirements
+
+- **Memory**: Minimum 4GB RAM (8GB recommended for large documents)
+- **Storage**: 1GB free space for dependencies
+- **Internet**: Required for Google AI API calls
+- **Browser**: Modern web browser (Chrome, Firefox, Safari, Edge)
 
 **Built with ❤️ using Streamlit and Google Gemini AI**
 
